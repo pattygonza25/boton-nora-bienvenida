@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bienvenido a NORA · Bot-On</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #1a1f5e;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: #1a1f5e;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-name {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    .logo-sub {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      color: #6AB7EA;
+    }
+
+    /* ── SECTION 1: BIENVENIDA ── */
+    .sec-welcome {
+      background: #6AB7EA;
+      padding: 140px 24px 100px;
+      text-align: left;
+    }
+
+    .sec-welcome .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1a1f5e;
+      color: #ffffff;
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      padding: 8px 18px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+
+    .welcome-headline {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: clamp(32px, 5vw, 56px);
+      color: #1a1f5e;
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+
+    .welcome-lead {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.8;
+      color: rgba(26, 31, 94, 0.80);
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+
+    .welcome-sub {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(26, 31, 94, 0.80);
+      max-width: 680px;
+    }
+
+    /* ── SECTION 2: QUÉ VA A PASAR ── */
+    .sec-how {
+      background: #ffffff;
+      padding: 80px 24px;
+    }
+
+    .sec-how .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-label {
+      display: block;
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #008bdb;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      color: #1a1f5e;
+      margin-bottom: 56px;
+      line-height: 1.2;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 720px) {
+      .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: #f0f4f8;
+      border-radius: 14px;
+      padding: 36px 28px;
+      border: 1.5px solid rgba(0, 139, 219, 0.12);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .card-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #008bdb, #6AB7EA);
+      color: #ffffff;
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #1a1f5e;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      color: rgba(26, 31, 94, 0.75);
+      line-height: 1.7;
+    }
+
+    /* ── SECTION 3: TU OPINIÓN ── */
+    .sec-opinion {
+      background: #6AB7EA;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .sec-opinion .container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .sec-opinion .section-title {
+      color: #1a1f5e;
+      margin-bottom: 20px;
+    }
+
+    .sec-opinion .opinion-text {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.75;
+      color: rgba(26, 31, 94, 0.80);
+    }
+
+    /* ── SECTION 4: FORM ── */
+    .sec-form {
+      background: #ffffff;
+      padding: 60px 24px;
+    }
+
+    .sec-form .container {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .tally-wrapper {
+      width: 100%;
+    }
+
+    .tally-wrapper iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+
+    /* ── SECTION 5: CIERRE ── */
+    .sec-close {
+      background: #1a1f5e;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .sec-close .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .sec-close .close-title {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .sec-close .close-text {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.60);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #12174a;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-copy {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.30);
+      margin-bottom: 12px;
+    }
+
+    .footer-disclaimer {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.25);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── RESPONSIVE TWEAKS ── */
+    @media (max-width: 480px) {
+      .sec-welcome {
+        padding: 120px 20px 80px;
+      }
+
+      .sec-how,
+      .sec-opinion,
+      .sec-form,
+      .sec-close {
+        padding: 60px 20px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .sec-close .close-title {
+        font-size: 28px;
+      }
+
+      .card {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-wrapper">
+      <span class="logo-name">Bot-On</span>
+      <span class="logo-sub">presenta NORA</span>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 1: BIENVENIDA -->
+  <section class="sec-welcome">
+    <div class="container">
+      <span class="badge">Bot-On NORA · Acceso Beta</span>
+      <h1 class="welcome-headline" id="welcome-headline">Hola. Bienvenido a NORA.</h1>
+      <p class="welcome-lead">
+        NORA es tu nueva compañera de Bot-On. Todos los días te va a enviar un ejercicio cortito por WhatsApp para mantener tu mente activa. Solo 3 minutos, a tu ritmo, cuando quieras.
+      </p>
+      <p class="welcome-sub">
+        Eres de los primeros en probarla. Lo que nos cuentes nos ayuda a hacer algo mejor para ti y para muchas personas más.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: QUÉ VA A PASAR -->
+  <section class="sec-how">
+    <div class="container">
+      <span class="section-label">Qué va a pasar</span>
+      <h2 class="section-title">Así funciona NORA.</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-number">1</div>
+          <p class="card-title">NORA te saluda cada día</p>
+          <p class="card-desc">Todos los días NORA te va a escribir por WhatsApp. Solo tienes que responder cuando quieras.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">2</div>
+          <p class="card-title">Un ejercicio de 3 minutos</p>
+          <p class="card-desc">Cortito y a tu ritmo. NORA lo diseña especialmente para ti, según cómo eres tú.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">3</div>
+          <p class="card-title">Tu mente más activa</p>
+          <p class="card-desc">Con cada sesión tu mente se ejercita. Como caminar todos los días, pero para la cabeza.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: TU OPINIÓN IMPORTA -->
+  <section class="sec-opinion">
+    <div class="container">
+      <h2 class="section-title">Cuéntanos cómo te va.</h2>
+      <p class="opinion-text">
+        Tienes unas preguntas cortitas para contarnos tu experiencia. No hay respuestas buenas ni malas, solo las tuyas. Lo que escribas llega directo a nuestro equipo.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: FORMULARIO TALLY -->
+  <section class="sec-form">
+    <div class="container">
+      <div class="tally-wrapper">
+        <iframe data-tally-src="https://tally.so/embed/MeJJdA?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Feedback Beta NORA"></iframe>
+        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5: CIERRE -->
+  <section class="sec-close">
+    <div class="container">
+      <h2 class="close-title">Gracias por ser de los primeros. Esto es para ti.</h2>
+      <p class="close-text">El equipo de Bot-On está contigo en cada sesión.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p class="footer-copy">© 2026 Bot-On. Todos los derechos reservados.</p>
+    <p class="footer-disclaimer">Bot-On NORA no reemplaza la consulta médica profesional. El entrenamiento cognitivo es un servicio de bienestar mental complementario.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var nombre = params.get('nombre');
+      var headline = document.getElementById('welcome-headline');
+
+      if (nombre && nombre.trim() !== '') {
+        var nombreLimpio = nombre.trim().charAt(0).toUpperCase() + nombre.trim().slice(1);
+        headline.textContent = 'Hola ' + nombreLimpio + '. Bienvenido a NORA.';
+      }
+    })();
+  </script>
+
+</body>
+</html>
