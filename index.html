@@ -139,8 +139,15 @@
       font-family: 'Ubuntu', sans-serif;
       font-weight: 700;
       font-size: 14px;
-      padding: 8px 24px;
+      padding: 12px 28px;
       border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .gift-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
     .gift-condition {
       margin-top: 14px;
@@ -383,8 +390,8 @@
           una herramienta más real, más útil, más tuya.
           Tu próximo mes es completamente gratis.
         </p>
-        <span class="gift-badge">30 días gratis · Sin costo · Para ti</span>
-        <p class="gift-condition">* Se activan al completar la encuesta de experiencia.</p>
+        <a href="#encuesta" class="gift-badge">🎁 Quiero mis 30 días gratis</a>
+        <p class="gift-condition">Completa la encuesta de experiencia y se activan automáticamente.<br>Tu opinión es la que guía las mejoras del producto.</p>
       </div>
     </div>
   </section>
@@ -430,7 +437,7 @@
   </section>
 
   <!-- FORMULARIO TALLY -->
-  <section class="sec-form">
+  <section class="sec-form" id="encuesta">
     <div class="container">
       <div class="tally-wrapper">
         <iframe data-tally-src="https://tally.so/embed/44ooBB?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Feedback Beta NORA"></iframe>
